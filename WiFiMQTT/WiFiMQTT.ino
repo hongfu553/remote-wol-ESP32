@@ -6,7 +6,7 @@ const char* password = "29180064";
 
 WebServer server(80);
 
-const int ledPin = 2;  // ESP32板載LED通常連接到GPIO2
+const int ledPin = 2;  // ESP32 GPIO2
 
 void setup() {
   Serial.begin(115200);
@@ -27,7 +27,7 @@ void setup() {
   server.on("/led/off", handleLedOff);
 
   server.begin();
-  Serial.println("HTTP服務器已啟動");
+  Serial.println("HTTP server is started");
 }
 
 void loop() {
@@ -36,9 +36,9 @@ void loop() {
 
 void handleRoot() {
   String html = "<html><body>";
-  html += "<h1>ESP32 Web Server</h1>";
-  html += "<p><a href='/led/on'><button>Open PC</button></a></p>";
-  html += "<p><a href='/led/off'><button>關閉LED</button></a></p>";
+  html += "<h1>ESP32 Wol Web Server</h1>";
+  html += "<p><a href='/led/on'><button>Wol PC</button></a></p>";
+  html += "<p><a href='/led/off'><button>Open LED</button></a></p>";
   html += "</body></html>";
   server.send(200, "text/html", html);
 }
